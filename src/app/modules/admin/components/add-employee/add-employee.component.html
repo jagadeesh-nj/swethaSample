@@ -1,0 +1,62 @@
+<div mat-dialog-title align="center">
+   Add Employee</div>
+<form [formGroup]="empForm" (ngSubmit)="submitForm()">
+<div mat-dialog-content class="content">
+    <div class="row">        
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Ex. Sachin" formControlName="firstName">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          </mat-form-field>      
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Ex. Tendulkar" formControlName="lastName">
+          </mat-form-field>
+        </div>
+        <div class="row">        
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Ex. sachin@gmail.com" formControlName="email">
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+              </mat-form-field>      
+              <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                    <mat-label><b>Gender</b></mat-label>
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    <mat-radio-button value="others">Others</mat-radio-button>
+                  </mat-radio-group>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Education</mat-label>
+                    <mat-select formControlName="education">
+                      <mat-option *ngFor="let val of education" [value]="val">
+                        {{val}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Salary</mat-label>
+                    <input matInput type="number" formControlName="salary">
+                    <mat-hint>In Rupees</mat-hint>
+                  </mat-form-field>  
+                 
+            </div>
+           
+    
+</div>
+<mat-dialog-actions align="end" class="action">
+  <button mat-raised-button [mat-dialog-close]="false" type="button">Cancel</button>
+  <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="true"  cdkFocusInitial>{{data ? 'Update' : 'Save'}}</button>
+</mat-dialog-actions>
+
+</form>

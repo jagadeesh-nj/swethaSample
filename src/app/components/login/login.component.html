@@ -1,0 +1,28 @@
+<div class="container flex-center vh-100">
+    <div class="my-auto w-50">
+    <div class="card w-75 mx-auto">
+        <div class="card-body">
+            <div class="text-center">
+                <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+                <h3>Welcome</h3>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <label for="username">Email </label>
+                <input id="username" type="email" placeholder="Enter Email ID" class="form-control" formControlName="username">
+
+                <label for="password">Password </label>
+                <input id="password" type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+              
+                <div class="flex-center mt-2">
+                    <input type="submit" class="btn btn-primary w-50" value="Login" name="">
+                </div>
+              
+              </form>
+        </div>
+        <div class="card-footer text-end">
+            <a routerLink="../forgotpassword">Forgot Password?</a>
+        </div>
+      </div>
+      </div>
+</div>
